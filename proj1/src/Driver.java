@@ -3,10 +3,10 @@
  */
 public final class Driver {
 
-	private static final Item ITEM_CEREAL = new Item("Cereal", 1, 200);
-	private static final Item ITEM_JAM = new Item("Jam", 2, 400);
-	private static final Item ITEM_BUTTER = new Item("Butter", 3, 250);
-	private static final Item[] ITEMS = { ITEM_CEREAL, ITEM_JAM, ITEM_BUTTER };
+	private static final ItemInterface ITEM_CEREAL = new Item("Cereal", 1, 200);
+	private static final ItemInterface ITEM_JAM = new Item("Jam", 2, 400);
+	private static final ItemInterface ITEM_BUTTER = new Item("Butter", 3, 250);
+	private static final ItemInterface[] ITEMS = { ITEM_CEREAL, ITEM_JAM, ITEM_BUTTER };
 
 	private Driver() {
 	}
@@ -16,7 +16,7 @@ public final class Driver {
 	 *            Not used
 	 */
 	public static void main(String[] pArgs) {
-		for (Item item : ITEMS) {
+		for (ItemInterface item : ITEMS) {
 			System.out.println(item.getName());
 		}
 	}

@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class Inventory {
 
 	private final String aName; // Unique
-	private final HashMap<Item, Integer> aInventory = new HashMap<>();
+	private final HashMap<ItemInterface, Integer> aInventory = new HashMap<>();
 
 	/**
 	 * Creates a new inventory with no items in it, and identified uniquely with
@@ -34,7 +34,7 @@ public class Inventory {
 	 * @param pQuantity
 	 *            The amount to add.
 	 */
-	public void stock(Item pItem, int pQuantity) {
+	public void stock(ItemInterface pItem, int pQuantity) {
 		int amount = 0;
 		if (aInventory.containsKey(pItem)) {
 			amount = aInventory.get(pItem);
@@ -53,7 +53,7 @@ public class Inventory {
 	 *            The amount to dispose.
 	 * @pre aInventory.containsKey(pItem) && pQuantity >= aInventory.get(pItem)
 	 */
-	public void dispose(Item pItem, int pQuantity) {
+	public void dispose(ItemInterface pItem, int pQuantity) {
 		int amount = aInventory.get(pItem);
 		amount -= pQuantity;
 		aInventory.put(pItem, amount);
@@ -64,7 +64,7 @@ public class Inventory {
 	 *            The item to check for availability.
 	 * @return How many of the items are available in the inventory.
 	 */
-	public int pAvailable(Item pItem) {
+	public int pAvailable(ItemInterface pItem) {
 		if (aInventory.containsKey(pItem)) {
 			return aInventory.get(pItem);
 		} else {
